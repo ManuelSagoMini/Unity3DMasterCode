@@ -1,0 +1,68 @@
+namespace MasterCode {
+
+    using UnityEngine;
+
+    public class #SCRIPTNAME# : Coordinator<#SCRIPTNAME#> {
+
+        #region Serialized Fields
+
+        [SerializeField]
+        private State_Default m_State_Default;
+
+        #endregion
+
+
+        #region Coordinator
+
+        override protected void Setup() {
+
+            this.Add_State(m_State_Default);
+        }
+
+        override protected void Destroy() {
+
+        }
+
+        #endregion
+
+
+        #region BASE_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+        private abstract class State_#SCRIPTNAME# : State<#SCRIPTNAME#> {
+
+            #region Shared Properties
+
+            #endregion
+
+            #region Shared Methods
+
+            #endregion
+        }
+
+        #endregion 
+
+
+        #region STATES___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+        [System.Serializable]
+        private class State_Default : State_#SCRIPTNAME# {
+
+            #region State
+
+            override public void Enter() {
+
+            }
+
+            override public void Exit() {
+
+            }
+
+            #endregion
+
+        }
+
+        #endregion
+
+    }
+}

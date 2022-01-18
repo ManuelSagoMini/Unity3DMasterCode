@@ -1,0 +1,90 @@
+namespace MasterCode {
+
+    using UnityEngine;
+
+    public class #SCRIPTNAME# : MasterCoordinator<#SCRIPTNAME#> {
+
+        #region Serialized Fields
+
+        [SerializeField]
+        private State_Setup m_State_Setup;
+
+        [SerializeField]
+        private State_Loop m_State_Loop;
+
+        #endregion
+
+
+        #region Coordinator
+
+        override protected void Setup() {
+
+            this.Add_State(m_State_Setup);
+            this.Add_State(m_State_Loop);
+        }
+
+        override protected void Destroy() {
+
+        }
+
+        #endregion
+
+
+        #region BASE_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+        private abstract class State_#SCRIPTNAME# : State<#SCRIPTNAME#> {
+
+            #region Shared Properties
+
+            #endregion
+
+            #region Shared Methods
+
+            #endregion
+        }
+
+        #endregion 
+
+
+        #region STATES___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+        [System.Serializable]
+        private class State_Setup : State_#SCRIPTNAME# {
+
+            #region State
+
+            override public void Enter() {
+
+                this.ChangeState<State_Loop>();
+            }
+
+            override public void Exit() {
+
+            }
+
+            #endregion
+
+        }
+
+        [System.Serializable]
+        private class State_Loop : State_#SCRIPTNAME# {
+
+            #region State
+
+            override public void Enter() {
+
+            }
+
+            override public void Exit() {
+
+            }
+
+            #endregion
+
+        }
+
+        #endregion
+
+    }
+}
